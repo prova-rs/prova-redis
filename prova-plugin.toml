@@ -5,4 +5,4 @@ description = "Redis cache for Prova — docker-exec over redis-cli, zero native
 license     = "MIT"
 
 [requires]
-prova = ">=0.1, <0.2"
+prova = ">=0.2, <0.3"
