@@ -1,0 +1,8 @@
+[plugin]
+name        = "redis"
+entry       = "redis.lua"
+description = "Redis cache for Prova — docker-exec over redis-cli, zero native code"
+license     = "MIT"
+
+[requires]
+prova = ">=0.1, <0.2"
