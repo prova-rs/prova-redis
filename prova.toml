@@ -1,7 +1,17 @@
-# Self-test manifest: resolve this plugin from its own directory (via prova-plugin.toml) and run
-# tests/. A consumer would instead declare `redis = "prova-rs/prova-redis@v1"`.
-[run]
-paths = ["tests"]
+# One manifest, two hats. In Prova a package is one prova.toml-rooted unit; this one both exports a
+# namespace (a plugin — `[plugin]`) and runs its own proofs (a suite). Author the plugin in
+# init.lua; prove it in proofs/; ship both together.
+[plugin]
+name        = "redis"
+description = "Redis cache for Prova — docker-exec over redis-cli, zero native code"
+license     = "MIT"
 
+# The range of prova versions this plugin is built against; a consumer is checked against it.
+[requires]
+prova = ">=0.3"
+
+# Resolve THIS plugin from its own directory, so the self-tests can `require("redis")` exactly as
+# a consumer would. A CONSUMER instead pins it by source — a released tag:
+#   redis = { git = "https://github.com/prova-rs/prova-redis", tag = "v1" }
 [plugins]
 redis = { path = "." }

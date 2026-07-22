@@ -42,7 +42,7 @@ either through the app's API (black-box) or directly with the client here.
 
 - `url` — `redis://127.0.0.1:<port>`, the endpoint for the app under test.
 - `container` — the Docker handle (`:host_port`, `:run`, `:logs`, …).
-- `client` — the docker-exec client (implement its methods in `redis.lua`).
+- `client` — the docker-exec client (implemented in `init.lua`; typed in `library/redis.lua`).
 
 `opts`: `image`, `tag` (default `7-alpine`), `timeout` — the `prova.containerized` options.
 
@@ -54,8 +54,8 @@ is absent.
 ## Develop
 
 ```bash
-prova                       # runs tests/ against ./redis.lua (needs Docker)
-prova plugin lint redis.lua
+prova                       # runs proofs/ against ./init.lua (needs Docker)
+prova plugin lint init.lua
 ```
 
 MIT licensed.
