@@ -13,5 +13,5 @@ prova = ">= 0.16"
 # Resolve THIS package from its own directory, so the self-tests can `require("redis")` exactly as
 # a consumer would. A CONSUMER instead pins it by source — a released tag:
 #   redis = { git = "https://github.com/prova-rs/prova-redis", tag = "v1" }
-[packages]
+[dependencies]
 redis = { path = "." }
